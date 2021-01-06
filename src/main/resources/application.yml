@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    # mysql
+    driver-class-name: com.mysql.jdbc.Driver
+    # 填写你数据库的url、登录名、密码和数据库名
+    # 注意：MySQL连接驱动和版本都是8.0以上需要添加时区：serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/emby666?characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 
+    
+    #druid数据源配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 连接池的配置信息
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      
+  mvc:
+    date-format: yyyy-MM-dd
+    
+mybatis:
+  # 配置mapper映射关系
+  mapper-locations: classpath:mapper/*.xml
+      
+server:
+  port: 8080
+  servlet:
+    context-path: /vue1
+  
