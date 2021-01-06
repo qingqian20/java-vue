@@ -12,11 +12,19 @@ import com.qingao.vue1.service.Servicegoods;
 @CrossOrigin
 public class Goodinfo {
 
+	public String name="李四";
 	@Autowired
 	Servicegoods Servicegoods;
+	
+	@RequestMapping("/req")
+	public String req(Integer pn) {
+		System.out.println(name);
+		return "666";
+	}
 	
 	@RequestMapping("/reqGoodinfo")
 	public Object reqGoodinfo(Integer pn) {
 		return Servicegoods.reqGoodinfo(pn);
 	}
+	
 }
